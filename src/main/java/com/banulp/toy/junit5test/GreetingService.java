@@ -1,13 +1,38 @@
 package com.banulp.toy.junit5test;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 @Service
 public class GreetingService {
 
     @Autowired
+    private Environment env;
+
+    @Value("${banulp.toy.desc}")
+    private String toyDesc;
+
+    @Autowired
     private FamilyService familyService;
+
+    @Autowired
+    private ServerProperties serverProperties;
+
+    public int countOfServer(){
+        return serverProperties.getUsers().size();
+    }
+    
+    public String getToyName(){
+        return env.getProperty("banulp.toy.name");
+    }
+
+    public String getToyDesc(){
+        return toyDesc;
+    }
 
     public String greetingToFriend(int bestOrder) {
         return "hello " + getFriendName(bestOrder);
