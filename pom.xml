@@ -28,7 +28,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-<!--			junit4.13, junit-vintage-engine-->
+<!--		exclude junit4.13, junit-vintage-engine. exclude 해야 junit 5만 사용-->
 			<exclusions>
 				<exclusion>
 					<groupId>org.junit.vintage</groupId>

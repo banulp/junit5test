@@ -28,4 +28,13 @@ class GreetingServiceTest {
         when(familyService.getFamilyName(1)).thenReturn("banulp");
         assertThat( greetingService.greetingToFamily(1)).isEqualTo("hello banulp");
     }
+
+    @Test
+    void greetingToFriend() {
+        assertThat( greetingService.greetingToFriend(1)).isEqualTo("hello jisu");
+        assertThat( greetingService.greetingToFriend(2)).isEqualTo("hello seyo");
+        assertThat( greetingService.greetingToFriend(3)).isEqualTo("hello bose");
+        assertThat( greetingService.greetingToFriend(4)).isEqualTo("hello suju");
+        assertThat( greetingService.greetingToFriend(0)).isEqualTo("hello noOne");
+    }
 }

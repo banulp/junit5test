@@ -46,8 +46,8 @@ class FamilyServiceTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints  = { 6, 7, 8, 9 })
-    void getFamilyName2(int   bestOrder) {
+    @ValueSource(ints = {6, 7, 8, 9})
+    void getFamilyName2(int bestOrder) {
         assertThat(s.getFamilyName(bestOrder), is(equalTo("my Family")));
     }
 
@@ -58,7 +58,7 @@ class FamilyServiceTest {
     }
 
     @ParameterizedTest
-    @EnumSource(names = { "BEST", "GOOD" })
+    @EnumSource(names = {"BEST", "GOOD"})
 //  그냥 pojo는 public static 있는거 찾아서
     void testWithEnumSourceInclude(RelationGrades unit) {
         assertTrue(EnumSet.of(RelationGrades.BEST, RelationGrades.GOOD).contains(unit));
@@ -75,6 +75,7 @@ class FamilyServiceTest {
     void testWithExplicitLocalMethodSource(String argument) {
         assertNotNull(argument);
     }
+
     static Stream<String> stringProvider() {
         return Stream.of("apple", "banana");
     }
@@ -84,6 +85,7 @@ class FamilyServiceTest {
     void testWithDefaultLocalMethodSource(String argument) {
         assertNotNull(argument);
     }
+
     static Stream<String> testWithDefaultLocalMethodSource() {
         return Stream.of("apple", "banana");
     }
